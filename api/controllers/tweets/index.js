@@ -4,7 +4,9 @@ const express = require('express');
 
 // MODULOS PROPIOS
 // servicio Tweet
-const tweets = require('./../../services/tweets');
+const tweetsService = require('./../../services/tweets');
+// utilidades - date
+const dateUtility = require('./../../utilities/date');
 
 // Inicializadores
 const router = express.Router();
@@ -12,16 +14,16 @@ const router = express.Router();
 // Rutas
 router.route('/')
     .get((req, res) => {
-        res.status(200).send(tweets.loadTweets());
+        res.status(200).send(tweetsService.loadTweets());
     })
     .post((req, res) => {
         const newTweet = {
-            id: tweets.arrayLength(),
+            id: tweetsService.arrayLength(),
             content: req.body.content,
-            date: Date.now(),
+            date: dateUtility.getDate(),
             userId: req.body.userId
         };
-        tweets.newTweet(newTweet);
+        tweetsService.newTweet(newTweet);
         res.status(200).send(`Tweet creado con id ${newTweet.id}`);
     });
 router.route('/:id')
