@@ -5,7 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 //MODULOS PROPIOS
-const config = require("./api/config");
+const config = require("./config");
 const api = require("./api");
 
 // Inicializadores

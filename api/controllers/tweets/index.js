@@ -2,16 +2,27 @@
 // importar express
 const express = require('express');
 
+// MODULOS PROPIOS
+// servicio Tweet
+const tweets = require('./../../services/tweets');
+
 // Inicializadores
 const router = express.Router();
 
 // Rutas
 router.route('/')
     .get((req, res) => {
-        res.status(200).send(`Lista de tweets`);
+        res.status(200).send(tweets.loadTweets());
     })
     .post((req, res) => {
-        res.status(200).send(`Nuevo tweet`);
+        const newTweet = {
+            id: tweets.arrayLength(),
+            content: req.body.content,
+            date: Date.now(),
+            userId: req.body.userId
+        };
+        tweets.newTweet(newTweet);
+        res.status(200).send(`Tweet creado con id ${newTweet.id}`);
     });
 router.route('/:id')
     .get((req, res) => {
