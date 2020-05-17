@@ -5,11 +5,24 @@ const express = require('express');
 // Inicializadores
 const router = express.Router();
 
+const afterSend = (req, res, next) => {
+    if(res.locals.resp !== undefined){
+        console.log(`resp:${res.locals.resp.msg}`);
+    }
+    next();
+};
+
 // Rutas
 router.route('/')
-    .get((req, res) => {
-        res.status(200).send(`Lista de usuarios`);
-    })
+    .get(afterSend, (req, res, next) => {
+        const resp = {
+            cod: 1,
+            msg: `Lista de usuarios`
+        };
+        res.locals.resp = resp;
+        res.status(200).send(resp);
+        next();
+    }, afterSend)
     .post((req, res) => {
         res.status(200).send(`Nuevo usuario`);
     });
