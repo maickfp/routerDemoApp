@@ -24,7 +24,11 @@ router.route('/')
             userId: req.body.userId
         };
         tweetsService.newTweet(newTweet);
-        res.status(200).send(`Tweet creado con id ${newTweet.id}`);
+        res.status(200).send({
+            est: 1,
+            msg: `Tweet creado`,
+            id: newTweet.id
+        });
     });
 router.route('/:id')
     .get((req, res) => {

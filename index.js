@@ -15,6 +15,7 @@ const app = express();
 // parse application/json
 app.use(bodyParser.json());
 app.use('/api', api);
+app.use(express.static('./public'));
 
 // Iniciar servidor
 app.listen(config.port, ()=>{

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mi Twitter</title>
+        <script src="./main.js"></script>
+    </head>
+    <body>
+        <h1>Mi Twitter</h1>
+        <!-- CLIMA -->
+        <h2>CLIMA</h2>
+        <form onsubmit="return false">
+            <table>
+                <tr>
+                    <td><label for="city">Ciudad</label></td>
+                    <td><input type="text" id="city" value="Barranquilla" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><button onclick="getWeatherInfo()" >Consultar</button></td>
+                </tr>
+            </table>
+        </form>
+        <div id="climaInfo">
+        </div>
+        <hr/>
+        <!-- TWEETS -->
+        <h2>TWEETS</h2>
+        <form onsubmit="return false">
+            <table>
+                <tr>
+                    <td><label for="content">Contenido</label></td>
+                    <td><input type="text" id="content" value="Hola mundo!" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><button onclick="createTweet()" >Enviar</button></td>
+                </tr>
+            </table>
+        </form>
+        <div id="tweetsInfo">
+        </div>
+    </body>
+</html>
