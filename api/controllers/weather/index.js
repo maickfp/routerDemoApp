@@ -15,11 +15,10 @@ const router = express.Router();
 router.route('/:city')
     .get((req, res) => {
         const city = req.params.city;
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.weatherApiKey}`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${config.weatherApiKey}`)
             .then(res => res.json())
             .then(data => {
-                const wind = data.wind;
-                res.status(200).send(wind);
+                res.status(200).send({temp: data.main.temp});
             });
     });
 

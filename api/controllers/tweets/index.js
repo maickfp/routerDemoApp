@@ -19,6 +19,7 @@ router.route('/')
     .post((req, res) => {
         const newTweet = {
             id: tweetsService.arrayLength(),
+            title: req.body.title,
             content: req.body.content,
             date: dateUtility.getDate(),
             userId: req.body.userId
