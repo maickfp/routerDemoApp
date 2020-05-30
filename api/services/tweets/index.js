@@ -3,6 +3,7 @@ const tweetsArray = [];
 /* Tweet format
 {
     id: auto,
+    title: string,
     content: string,
     date: string,
     user: number

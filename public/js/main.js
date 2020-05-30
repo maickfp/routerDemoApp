@@ -14,7 +14,7 @@ function getWeatherInfo(){
     })
     .then(res => res.json())
     .then(resp => {
-        document.getElementById('climaInfo').innerHTML = generateAlert('INFO', `Clima en ${weatherCity}: ${resp.temp}`);
+        document.getElementById('climaInfo').innerHTML = generateAlert('INFO', `Clima en ${weatherCity}: ${resp.temp}°C`);
         document.getElementById('city').value = '';
     })
     .catch(error => {
@@ -36,8 +36,7 @@ function createTweet(){
 
     const tweetBody = {
         title: tweetTitle,
-        content: tweetContent,
-        userId: 'maickfp'
+        content: tweetContent
     };
     
     fetch('api/tweets', {
@@ -89,7 +88,7 @@ function generateTweetStructure(tweet){
         <small>${tweet.date}</small>
         </div>
         <p class="mb-1">${tweet.content}</p>
-        <small>By @${tweet.userId}</small>
+        <small>By @${tweet.user}</small>
     </a>`;
 }
 

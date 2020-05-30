@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 //MODULOS PROPIOS
 const config = require("./config");
+const dbConfig = require("./config/db");
 const api = require("./api");
 
 // Inicializadores
@@ -16,6 +17,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/api', api);
 app.use(express.static('./public'));
+// configurar conexion mongoDB
+dbConfig();
 
 // Iniciar servidor
 app.listen(config.port, ()=>{
