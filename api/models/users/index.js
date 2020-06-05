@@ -4,16 +4,20 @@ const mongoose = require('mongoose');
 // Variables
 const Schema = mongoose.Schema;
 
-const tweetSchema = new Schema({
-    title: {
-        type: String,
-        required: false
-    },
-    content: {
+const userSchema = new Schema({
+    name: {
         type: String,
         required: true
     },
-    user: {
+    email: {
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
         type: String,
         required: true
     }
@@ -21,6 +25,6 @@ const tweetSchema = new Schema({
     timestamps: true
 });
 
-const Tweet = mongoose.model('tweets', tweetSchema);
+const User = mongoose.model('users', userSchema);
 
-module.exports = Tweet;
+module.exports = User;

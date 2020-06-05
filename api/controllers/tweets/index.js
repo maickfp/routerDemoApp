@@ -8,7 +8,7 @@ const express = require('express');
 // utilidades - date
 const dateUtility = require('./../../utilities/date');
 // modelo
-const Tweet = require('./../../models/tweets')
+const Tweet = require('./../../models/tweets');
 
 // Inicializadores
 const router = express.Router();
@@ -24,7 +24,6 @@ router.route('/')
         const data = {
             title: req.body.title,
             content: req.body.content,
-            date: dateUtility.getDate(),
             user: 'maickfp'
         };
 
@@ -58,7 +57,6 @@ router.route('/')
         const data = {
             title: req.body.title,
             content: req.body.content,
-            date: dateUtility.getDate(),
             user: 'maickfp'
         };
         
